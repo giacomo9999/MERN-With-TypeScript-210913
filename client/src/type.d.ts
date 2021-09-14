@@ -3,18 +3,18 @@ interface IFruit {
   fruitName: string;
   fruitColor: string;
   fruitShape: string;
-  fruitStatus: boolean;
+  fruitInStock: boolean;
   createdAt?: string;
   updatedAt?: string;
 }
 
-interface IFruitProps {
+interface FruitProps {
   fruit: IFruit;
 }
 
 type ApiDataType = {
   message: string;
-  status: string;
+  inStock: string;
   fruits: IFruit[];
   fruit?: IFruit;
 };

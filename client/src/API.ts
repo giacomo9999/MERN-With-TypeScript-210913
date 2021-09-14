@@ -21,7 +21,7 @@ export const addFruit = async (
       fruitName: formData.fruitName,
       fruitColor: formData.fruitColor,
       fruitShape: formData.fruitShape,
-      fruitStatus: formData.fruitStatus,
+      fruitInStock: formData.fruitInStock,
     };
     const newFruit: AxiosResponse<ApiDataType> = await axios.post(
       `${baseUrl}/add-fruit/`,
@@ -37,7 +37,9 @@ export const updateFruit = async (
   fruit: IFruit
 ): Promise<AxiosResponse<ApiDataType>> => {
   try {
-    const fruitUpdate: Pick<IFruit, "fruitStatus"> = { fruitStatus: true };
+    const fruitUpdate: Pick<IFruit, "fruitInStock"> = {
+      fruitInStock: !fruit.fruitInStock,
+    };
     const updatedFruit: AxiosResponse<ApiDataType> = await axios.put(
       `${baseUrl}/edit-fruit/${fruit._id}`,
       fruitUpdate
